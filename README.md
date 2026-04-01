@@ -73,3 +73,8 @@ This project supports:
 - idempotency
 - failure handling
 - retry-ready workflow state
+
+
+PORT=5000
+MONGO_URI=mongodb+srv://devanshsingh9090_scoreMe:NOyneQguzumwauvW@cluster0.xkufadc.mongodb.net/ScoreME?appName=Cluster0
+CLIENT_URL=http://localhost:5173
