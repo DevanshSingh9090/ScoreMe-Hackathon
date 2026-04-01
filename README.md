@@ -64,7 +64,7 @@ http://localhost:5000/api/workflows
 
 ---
 
-## Submission Notes
+## Submission Note
 This project supports:
 - configurable rules via JSON
 - input validation
