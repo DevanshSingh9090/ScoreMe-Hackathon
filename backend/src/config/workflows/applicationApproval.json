@@ -1,0 +1,45 @@
+{
+  "workflowName": "applicationApproval",
+  "version": 1,
+  "inputSchema": {
+    "required": ["requestId", "applicantName", "age", "income", "creditScore", "documentsComplete"]
+  },
+  "rules": [
+    {
+      "id": "AGE_CHECK",
+      "field": "age",
+      "operator": ">=",
+      "value": 18,
+      "onFail": "reject",
+      "reason": "Applicant must be at least 18 years old"
+    },
+    {
+      "id": "DOCUMENT_CHECK",
+      "field": "documentsComplete",
+      "operator": "===",
+      "value": true,
+      "onFail": "manual_review",
+      "reason": "Documents are incomplete"
+    },
+    {
+      "id": "CREDIT_CHECK",
+      "field": "creditScore",
+      "operator": ">=",
+      "value": 700,
+      "onFail": "manual_review",
+      "reason": "Credit score below preferred threshold"
+    },
+    {
+      "id": "INCOME_CHECK",
+      "field": "income",
+      "operator": ">=",
+      "value": 30000,
+      "onFail": "reject",
+      "reason": "Income below minimum threshold"
+    }
+  ],
+  "externalDependency": {
+    "enabled": true,
+    "serviceName": "documentVerification"
+  }
+}
